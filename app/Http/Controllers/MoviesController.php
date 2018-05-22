@@ -16,7 +16,9 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        return Movie::all();
+        $title = request()->input('title');
+
+        return Movie::search($title);
     }
 
     /**
