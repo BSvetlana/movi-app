@@ -25,7 +25,9 @@ class MovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:movies,releaseDate',
+            'title' => ['required',
+                        Rule::unique('movies')->where('releaseDate', request('releaseDate'))],
+                       
             'director' => 'required',
             'imageUrl' => 'URL',
             'duration' => 'required|numeric|min:1|max:500',

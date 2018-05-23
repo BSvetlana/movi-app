@@ -75,7 +75,7 @@ class MoviesController extends Controller
      */
     public function update(MovieRequest $request, $id)
     {
-        $movie = Movie::find($id);
+        $movie = Movie::findOrFail($id);
 
         $movie->title = $request->input('title');
         $movie->director = $request->input('director');
@@ -97,7 +97,7 @@ class MoviesController extends Controller
      */
     public function destroy($id)
     {
-        $movie = Movie::find($id);
+        $movie = Movie::findOrFail($id);
 
         $movie->delete();
 
