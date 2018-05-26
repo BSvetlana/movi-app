@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 Route::post('/login', 'Auth\LoginController@authenticate');
+Route::post('/register', 'Auth\RegisterController@register');
 
 Route::middleware('jwt')->get('/movies','MoviesController@index');
 Route::middleware('jwt')->post('/movies','MoviesController@store');
