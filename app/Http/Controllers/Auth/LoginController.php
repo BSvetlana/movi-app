@@ -46,7 +46,7 @@ class LoginController extends Controller
 
         try {
             if(!$token = \JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
+                return response()->json(['error' => 'You must register'], 401);
             }
         }catch (JWTException $e) {
             return response()->json(['error' => 'could_not_find_token'], 500);
